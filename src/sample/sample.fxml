@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <MenuBar layoutY="-1.0" prefHeight="30.0" prefWidth="600.0" AnchorPane.bottomAnchor="371.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Fitxer">
+            <items>
+                  <MenuItem fx:id="Obrir" mnemonicParsing="false" onAction="#obrirFitexr" text="Obrir Fitxer" />
+                  <MenuItem fx:id="Guardar" mnemonicParsing="false" onAction="#guardarFitxer" text="Guardar" />
+              <MenuItem fx:id="miSortir" mnemonicParsing="false" onAction="#sortir" text="Sortir" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" onShowing="#disableMenuEditItems" text="Editar">
+            <items>
+              <MenuItem fx:id="miCopiar" mnemonicParsing="false" onAction="#copiar" text="Copiar" />
+                  <MenuItem fx:id="miTallar" mnemonicParsing="false" onAction="#tallar" text="Tallar" />
+                  <MenuItem fx:id="miEnganxar" mnemonicParsing="false" onAction="#enganxar" text="Enganxar" />
+                  <MenuItem fx:id="miDesfer" mnemonicParsing="false" onAction="#desfer" text="Desfer" />
+                  <MenuItem fx:id="miRefer" mnemonicParsing="false" onAction="#refer" text="Refer" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Opcions">
+               <items>
+                  <Menu mnemonicParsing="false" text="Font tipus">
+                    <items>
+                        <CheckMenuItem fx:id="ChMcantarell" mnemonicParsing="false" onAction="#setFont" text="Cantarell" />
+                        <CheckMenuItem fx:id="ChMdejavuSans" mnemonicParsing="false" onAction="#setFont" text="DejaVu" />
+                        <CheckMenuItem fx:id="ChMdroidSans" mnemonicParsing="false" onAction="#setFont" text="Droid Sans" />
+                        <CheckMenuItem fx:id="ChMgentiumBbasic" mnemonicParsing="false" onAction="#setFont" text="Gentium Book Basic" />
+                        <CheckMenuItem fx:id="ChMliberationMono" mnemonicParsing="false" onAction="#setFont" text="Liberation Mono" />
+                        <CheckMenuItem fx:id="ChMlucidaBregular" mnemonicParsing="false" onAction="#setFont" text="Lucida Bright Regular" />
+                        <CheckMenuItem fx:id="ChMserif" mnemonicParsing="false" onAction="#setFont" text="Serif" />
+                        <CheckMenuItem fx:id="ChMsystem" mnemonicParsing="false" onAction="#setFont" text="System Regular" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Font estil">
+                    <items>
+                        <CheckMenuItem fx:id="ChMbold" mnemonicParsing="false" onAction="#setFontStyle" text="Negreta" />
+                        <CheckMenuItem fx:id="ChMitalic" mnemonicParsing="false" onAction="#setFontStyle" text="Cursiva" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Font tamany">
+                    <items>
+                        <MenuItem mnemonicParsing="false">
+                           <graphic>
+                              <TextField fx:id="fontTamany" alignment="CENTER" maxWidth="50.0" onAction="#setFontSize" prefWidth="50.0" />
+                           </graphic>
+                        </MenuItem>
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Font color">
+                     <items>
+                        <CheckMenuItem fx:id="cFF0000" mnemonicParsing="false" onAction="#setFontColor" text="Vermell" />
+                        <CheckMenuItem fx:id="c0000FF" mnemonicParsing="false" onAction="#setFontColor" text="Blau" />
+                        <CheckMenuItem fx:id="cFFFF00" mnemonicParsing="false" onAction="#setFontColor" text="Groc" />
+                        <CheckMenuItem fx:id="c000000" mnemonicParsing="false" onAction="#setFontColor" text="Negre" />
+                        <CheckMenuItem fx:id="cFFFFFF" mnemonicParsing="false" onAction="#setFontColor" text="Blanc" />
+                        <CheckMenuItem fx:id="c808080" mnemonicParsing="false" onAction="#setFontColor" text="Gris" />
+                        <CheckMenuItem fx:id="c008000" mnemonicParsing="false" onAction="#setFontColor" text="Verd" />
+                        <CheckMenuItem fx:id="cFFA500" mnemonicParsing="false" onAction="#setFontColor" text="Taronja" />
+                        <CheckMenuItem fx:id="cEE82EE" mnemonicParsing="false" onAction="#setFontColor" text="Violeta" />
+                     </items>
+                  </Menu>
+               </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Ajuda">
+              <items>
+                <MenuItem fx:id="miHelp" mnemonicParsing="false" onAction="#getInfo" text="Ayuramme teengo muchos quereseres" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <ToolBar layoutY="29.0" prefHeight="40.0" prefWidth="600.0" AnchorPane.bottomAnchor="331.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
+        <items>
+          <Button fx:id="btCopy" mnemonicParsing="false" onAction="#copiar" />
+        </items>
+      </ToolBar>
+      <TextArea fx:id="text" layoutY="69.0" prefHeight="333.0" prefWidth="600.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="69.0">
+         <contextMenu>
+            <ContextMenu onShowing="#disableContextItems">
+              <items>
+                <MenuItem fx:id="cMcopy" mnemonicParsing="false" onAction="#copiar" text="Copiar" />
+                  <MenuItem fx:id="cMtallar" mnemonicParsing="false" onAction="#tallar" text="Tallar" />
+                  <MenuItem mnemonicParsing="false" onAction="#enganxar" text="Enganxar" />
+                  <MenuItem mnemonicParsing="false" onAction="#desfer" text="Desfer" />
+                  <MenuItem mnemonicParsing="false" onAction="#refer" text="Refer" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TextArea>
+   </children>
+</AnchorPane>
